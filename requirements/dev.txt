@@ -1,2 +1,5 @@
+wheel
 pylint
+pylint-flask
+pylint_flask_sqlalchemy
 pytest

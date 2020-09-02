@@ -5,31 +5,10 @@ from datetime import datetime
 from flask import make_response, abort
 
 def get_timestamp():
+    """
+    get current timestamp in UTC
+    """
     return datetime.now().strftime(("%Y-%m-%d %H:%M:%S"))
-
-# Static Data to serve with our API
-PEOPLE = {
-    "Superman": {
-        "fname": "Clark",
-        "lname": "Kent",
-        "timestamp": get_timestamp()
-    },
-    "Batman": {
-        "fname": "Bruce",
-        "lname": "Wayne",
-        "timestamp": get_timestamp()
-    },
-    "Green Lantern": {
-        "fname": "Hal",
-        "lname": "Jordan",
-        "timestamp": get_timestamp()
-    },
-    "Flash": {
-        "fname": "Barry",
-        "lname": "Allen",
-        "timestamp": get_timestamp()
-    }
-}
 
 # Create a handler for our read (GET) people
 def read_all():
