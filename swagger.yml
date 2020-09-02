@@ -1,0 +1,36 @@
+swagger: "2.0"
+info:
+  description: MinimalRESTAPI swagger file
+  version: "1.0.0"
+  title: MinimalRESTAPI
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+basePath: "/mrapi"
+
+# Paths supported by the server application
+paths:
+  /people:
+    get:
+      # Package route, in this case controllers/people.py->def read()
+      operationId: "controllers.people.read"
+      tags:
+        - "People"
+      summary: "The people data structure supported by the server application"
+      description: "Read the list of people"
+      responses:
+        # defines the section for a successful response, HTTP status code 200
+        200:
+          description: "Successful read people list operation"
+          schema:
+            type: "array"
+            items:
+              properties:
+                fname:
+                  type: "string"
+                lname:
+                  type: "string"
+                timestamp:
+                  type: "string"

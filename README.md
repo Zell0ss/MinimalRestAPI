@@ -11,3 +11,4 @@ Read 	GET 	/api/people/Farrell 	Defines a unique URL to read a particular person
 Update 	PUT 	/api/people/Farrell 	Defines a unique URL to update an existing order
 Delete 	DELETE 	/api/orders/Farrell 	Defines a unique URL to delete an existing person
 
+## swagger in localhost:5000/mrapi/ui
