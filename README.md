@@ -1,0 +1,2 @@
+# MinimalRestAPI
+Schematic RESTAPI blueprint
