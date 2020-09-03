@@ -1,5 +1,6 @@
 from datetime import datetime
 #get the database and marsmallow apps
+from sqlalchemy import true
 from config import db, ma
 
 class Person(db.Model):
@@ -15,3 +16,4 @@ class PersonSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Person
         sqla_session = db.session
+        load_instance = true

@@ -28,9 +28,14 @@ paths:
             type: "array"
             items:
               properties:
+                person_id:
+                  type: string
+                  description: Id of the person
                 fname:
                   type: "string"
                 lname:
+                  type: "string"
+                heroname:
                   type: "string"
                 timestamp:
                   type: "string"
@@ -62,8 +67,25 @@ paths:
       responses:
         201:
           description: Successfully created person in list
+          schema:
+            properties:
+              person_id:
+                type: string
+                description: Id of the person
+              heroname:
+                type: string
+                description: Superhero name
+              fname:
+                type: string
+                description: First name of the person
+              lname:
+                type: string
+                description: Last name of the person
+              timestamp:
+                type: string
+                description: Creation/Update timestamp of the person record
 
-  /people/{heroname}:
+  /people/{person_id}:
     get:
       operationId: controllers.people.read_one
       tags:
@@ -71,9 +93,9 @@ paths:
       summary: Read one person from the people list
       description: Read one person from the people list
       parameters:
-        - name: heroname
+        - name: person_id
           in: path
-          description: Super Hero name of the person to get from the list
+          description: Id of the person to get
           type: string
           required: True
       responses:
@@ -81,12 +103,21 @@ paths:
           description: Successfully read person from people list operation
           schema:
             properties:
+              person_id:
+                type: string
+                description: Id of the person
+              heroname:
+                type: string
+                description: Superhero name
               fname:
                 type: string
+                description: First name of the person
               lname:
                 type: string
+                description: Last name of the person
               timestamp:
                 type: string
+                description: Creation/Update timestamp of the person record
 
 
     delete:
@@ -96,9 +127,10 @@ paths:
       summary: Delete a person from the people list
       description: Delete a person
       parameters:
-        - name: heroname
+        - name: person_id
           in: path
           type: string
+          description: Id of the person to delete
           required: True
       responses:
         200:
@@ -111,20 +143,42 @@ paths:
       summary: Update a superhero in the people list
       description: Update a superhero in the people list
       parameters:
-        - name: heroname
+        - name: person_id
           in: path
-          description: Last name of the person to update in the list
+          description: id of the person to update in the list
           type: string
           required: True
         - name: person
           in: body
           schema:
             type: object
-            properties:
+            properties:              
+              heroname:
+                type: string
+                description: Superhero name
               fname:
                 type: string
+                description: First name of the person
               lname:
                 type: string
+                description: Last name of the person
       responses:
         200:
           description: Successfully updated person in people list
+          schema:
+            properties:
+              person_id:
+                type: string
+                description: Id of the person
+              heroname:
+                type: string
+                description: Superhero name
+              fname:
+                type: string
+                description: First name of the person
+              lname:
+                type: string
+                description: Last name of the person
+              timestamp:
+                type: string
+                description: Creation/Update timestamp of the person record
