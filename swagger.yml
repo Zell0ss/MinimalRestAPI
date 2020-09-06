@@ -184,8 +184,9 @@ paths:
   
   /people/{person_id}/notes:
     get:
+      operationId: controllers.notes.read_all_mine
       tags:
-        -Notes
+        - Notes
       summary: Gets all notes of a given person
       description: Gets all notes of a given person
       parameters:
@@ -211,7 +212,7 @@ paths:
                   type: string
                   description: Create/Update timestamp of the note
     post:
-      operationId: notes.create
+      operationId: controllers.notes.create
       tags:
         - Notes
       summary: Create a note associated with a person
@@ -252,7 +253,7 @@ paths:
   
   /people/{person_id}/notes/{note_id}:
     get:
-      operationId: notes.read_one
+      operationId: controllers.notes.read_one
       tags:
         - Notes
       summary: Read a particular note associated with a person
@@ -288,7 +289,7 @@ paths:
                 description: Creation/Update timestamp of the note record
 
     put:
-      operationId: notes.update
+      operationId: controllers.notes.update
       tags:
         - Notes
       summary: Update a note associated with a person
@@ -331,7 +332,7 @@ paths:
                 description: Creation/Update timestamp of the note record
 
     delete:
-      operationId: notes.delete
+      operationId: controllers.notes.delete
       tags:
         - Notes
       summary: Delete a note associated with a person
@@ -353,7 +354,7 @@ paths:
 
   /notes:
     get:
-      operationId: notes.read_all
+      operationId: controllers.notes.read_all
       tags:
         - Notes
       summary: Read the entire set of notes for all people, sorted by timestamp
