@@ -2,6 +2,7 @@ from datetime import datetime
 #get the database and marsmallow apps
 from sqlalchemy import true
 from config import db, ma
+from marshmallow import fields
 # this I need for the relationship but as Note is passed as a string rather than an objet
 # the lynter doesnt know its used and complains
 from models.note import Note # pylint: disable=unused-import
@@ -31,3 +32,13 @@ class PersonSchema(ma.SQLAlchemyAutoSchema):
         model = Person
         sqla_session = db.session
         load_instance = true
+    notes = fields.Nested('PersonNoteSchema', default=[], many=True) # could not refer directly to NoteSchema
+
+class PersonNoteSchema(ma.SQLAlchemyAutoSchema):
+    """
+    This class exists to get around a recursion issue
+    """
+    note_id = fields.Int()
+    person_id = fields.Int()
+    content = fields.Str()
+    timestamp = fields.Str()
